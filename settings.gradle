@@ -1,1 +1,1 @@
-include ':app', ':sampleproject'
+include ':RecyclerAdapterLib', ':sampleproject'
