@@ -1,43 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-    }
-}
-
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-
-
-ext {
-    bintrayRepo = 'GMRecyclerAdapter'
-    bintrayName = 'RecyclerViewLib'
-
-    publishedGroupId = 'geo.metax.recyclerviewlib'
-    libraryName = 'GMRecyclerAdapter'
-    artifact = 'GMRecyclerAdapter'
-
-    libraryDescription = 'This is an abstract adapter for easier use of recyclerviews'
-
-    siteUrl = 'https://github.com/MeTaXaS4/RecyclerViewLib'
-    gitUrl = 'https://github.com/MeTaXaS4/RecyclerViewLib.git'
-
-    libraryVersion = '1.0'
-
-    developerId = 'metaxas4'
-    developerName = 'George Metaxakis'
-    developerEmail = 'metaxas4@gmail.com'
-
-    licenseName = 'MIT License'
-    licenseUrl = 'https://github.com/MeTaXaS4/RecyclerViewLib/blob/master/LICENSE'
-    allLicenses = ["MIT License"]
-}
+apply plugin: 'kotlin-android-extensions'
 
 android {
     dataBinding {
@@ -59,92 +23,21 @@ android {
     }
 }
 
+tasks.withType(Javadoc).all { enabled = false }
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.android.support:appcompat-v7:28.0.0'
     api "com.android.support:recyclerview-v7:28.0.0"
 }
-apply plugin: 'kotlin-android-extensions'
 
 
-group = publishedGroupId
-version = libraryVersion
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId publishedGroupId
-            artifactId artifact
-
-            name libraryName
-            description libraryDescription
-            url siteUrl
-
-            licenses {
-                license {
-                    name licenseName
-                    url licenseUrl
-                }
-            }
-            developers {
-                developer {
-                    id developerId
-                    name developerName
-                    email developerEmail
-                }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url siteUrl
-            }
-        }
-    }
+ext {
+    PUBLISH_GROUP_ID = 'geo.metax.recyclerviewlib'
+    PUBLISH_ARTIFACT_ID = 'GMRecyclerAdapter'
+    PUBLISH_VERSION = '1.0'
 }
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = bintrayRepo
-        name = bintrayName
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = allLicenses
-        dryRun = false
-        publish = true
-        override = false
-        publicDownloadNumbers = true
-        version {
-            desc = libraryDescription
-        }
-    }
-}
+apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
