@@ -1,7 +1,7 @@
 package geo.metax.sampleproject
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import geo.metax.sampleproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

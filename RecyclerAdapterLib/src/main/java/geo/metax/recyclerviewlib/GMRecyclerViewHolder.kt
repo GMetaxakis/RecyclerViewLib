@@ -1,11 +1,11 @@
 package geo.metax.recyclerviewlib
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 abstract class GMRecyclerViewHolder<Element>(
-    private val dataBindingView: android.databinding.ViewDataBinding,
+    private val dataBindingView: androidx.databinding.ViewDataBinding,
     private val enableSelection: Boolean = false
-) : RecyclerView.ViewHolder(dataBindingView.root) {
+) : androidx.recyclerview.widget.RecyclerView.ViewHolder(dataBindingView.root) {
     open fun bindModel(item: Element, selected: Boolean = false) {
         if (enableSelection)
             dataBindingView.root.isSelected = selected

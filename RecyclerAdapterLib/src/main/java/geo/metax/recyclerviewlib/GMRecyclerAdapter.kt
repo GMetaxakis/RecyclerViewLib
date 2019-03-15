@@ -1,10 +1,10 @@
 package geo.metax.recyclerviewlib
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 abstract class GMRecyclerAdapter<Element, ViewHolder : GMRecyclerViewHolder<Element>> :
-    RecyclerView.Adapter<ViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
     private var selectedItemPosition: Int = 0
 

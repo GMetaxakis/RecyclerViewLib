@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -29,15 +29,15 @@ tasks.withType(Javadoc).all { enabled = false }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api "com.android.support:recyclerview-v7:28.0.0"
+    api "androidx.appcompat:appcompat:$androidx_appcompat"
+    api "androidx.recyclerview:recyclerview:$androidx_recyclerview"
 }
 
 
 ext {
     PUBLISH_GROUP_ID = 'geo.metax.recyclerviewlib'
     PUBLISH_ARTIFACT_ID = 'GMRecyclerAdapter'
-    PUBLISH_VERSION = '1.0'
+    PUBLISH_VERSION = '1.1'
 }
 
 apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
