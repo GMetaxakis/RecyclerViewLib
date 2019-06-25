@@ -5,7 +5,10 @@ This is an abstract adapter for easier use of recyclerviews
 The library and the sample project are writen in kotlin language, with the usage of android data binding.
 
 ## How to use
-add `implementation 'geo.metax.recyclerviewlib:GMRecyclerAdapter:1.0'` in your gradle file
+![Bintray](https://img.shields.io/bintray/v/metaxas4/GMRecyclerAdapter/RecyclerViewLib.svg)
+![GitHub](https://img.shields.io/github/license/MeTaXaS4/RecyclerViewLib.svg)
+
+add `implementation 'geo.metax.recyclerviewlib:GMRecyclerAdapter:1.1'` in your gradle file
 
 
 ## Library
