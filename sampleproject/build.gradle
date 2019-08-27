@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -31,5 +32,5 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout"
     implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview"
-    implementation project(path: ':RecyclerAdapterLib')
+    implementation project(path: ':GMRecyclerAdapter')
 }

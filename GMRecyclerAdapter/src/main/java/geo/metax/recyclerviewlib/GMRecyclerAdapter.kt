@@ -1,6 +1,5 @@
 package geo.metax.recyclerviewlib
 
-import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 abstract class GMRecyclerAdapter<Element, ViewHolder : GMRecyclerViewHolder<Element>> :
@@ -44,6 +43,22 @@ abstract class GMRecyclerAdapter<Element, ViewHolder : GMRecyclerViewHolder<Elem
             if (notifyDataSetChanged)
                 notifyDataSetChanged()
         }
+    }
+
+    open fun addAllNotDuplicate(
+        items: MutableList<Element>?,
+        notifyDataSetChanged: Boolean = true
+    ) {
+        items?.let {
+            it.forEach { element ->
+                if (!data.contains(element))
+                    data.add(element)
+            }
+            if (it.size > 0)
+                if (notifyDataSetChanged)
+                    notifyDataSetChanged()
+        }
+
     }
 
     open fun clear(notifyDataSetChanged: Boolean = true) {

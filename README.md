@@ -8,7 +8,7 @@ The library and the sample project are writen in kotlin language, with the usage
 ![Bintray](https://img.shields.io/bintray/v/metaxas4/GMRecyclerAdapter/RecyclerViewLib.svg)
 ![GitHub](https://img.shields.io/github/license/MeTaXaS4/RecyclerViewLib.svg)
 
-add `implementation 'geo.metax.recyclerviewlib:GMRecyclerAdapter:1.1'` in your gradle file
+add `implementation 'geo.metax.recyclerviewlib:GMRecyclerAdapter:1.2'` in your gradle file
 
 
 ## Library

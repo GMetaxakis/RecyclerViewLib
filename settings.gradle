@@ -1,1 +1,1 @@
-include ':RecyclerAdapterLib', ':sampleproject'
+include ':GMRecyclerAdapter', ':sampleproject'
